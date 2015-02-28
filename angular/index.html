@@ -13,7 +13,11 @@
     </head>
         
     <body ng-controller = "ProductController as items">
-        <p>{{items.title}}</p>
+        <h1>{{items.title[0]}}</h1>
+        <p>{{items.description[0]}}</p>
+        <h2>{{items.price[0] | currency}}</h2>
+        <p>{{items.category[0]}}</p>
+            
         
         <!--bower:js-->
         <script src="bower_components/jquery/dist/jquery.js"></script>
