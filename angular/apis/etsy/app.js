@@ -8,14 +8,12 @@
             host: 'openapi.etsy.com',
             base: '/v2',
             path: '/listings/trending',
-            params: {
-                callback: '.js?callback=JSON_callback',
-                api_key: 'q4ubii6kukovuc0hl2e8myxx',
-                includes: 'MainImage',
-                fields: 'title,description,price,category_path'
-            }
+            callback: '.js?callback=JSON_CALLBACK',
+            api_key: 'q4ubii6kukovuc0hl2e8myxx',
+            includes: 'MainImage',
+            fields: 'title,description,price,category_path'
             };            
-        var apiTemplate = _.template("${scheme}://${host}${base}${path}${params.callback}&api_key=${params.api_key}&includes=${params.includes}&fields=${params.fields}");
+        var apiTemplate = _.template("${scheme}://${host}${base}${path}${callback}&api_key=${api_key}&includes=${includes}&fields=${fields}");
         console.log(apiTemplate(API));
         
 //        function productFields(){
@@ -24,8 +22,8 @@
     
         $http.jsonp(apiTemplate(API))
         .success(function(data){
-            self.results = data.results
-            console.log(self.results);
+            self.trending = data.results
+            console.log(self.trending)
         });
     }])    
 })();
