@@ -15,15 +15,17 @@
             };            
         var apiTemplate = _.template("${scheme}://${host}${base}${path}${callback}&api_key=${api_key}&includes=${includes}&fields=${fields}");
         console.log(apiTemplate(API));
-        
-//        function productFields(){
-//            
-//        };
     
         $http.jsonp(apiTemplate(API))
         .success(function(data){
-            self.trending = data.results
-            console.log(self.trending)
+            self.trendingProducts = data.results
+            console.log(self.trendingProducts);
+            
+            function productTitle(results) {
+                return _.map(results, 'title');
+            };
+            self.title = productTitle(self.trendingProducts)
+
         });
     }])    
 })();
