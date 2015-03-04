@@ -10,7 +10,8 @@ assert = require('assert');
         	base: '/v2',
         	path: '/taxonomy/categories',
         	params: {
-        		api_key: 'q4ubii6kukovuc0hl2e8myxx'
+        		api_key: 'q4ubii6kukovuc0hl2e8myxx',
+                fields= 'name'
         	},
         };
         
