@@ -1,44 +1,44 @@
 //(function(){
 //    var app = angular.module('tiy-catalog', []);
 //    app.controller("ProductController", [ '$http', function ($http) {
-assert = require('assert');   
+var assert = require('assert'); 
 
-        var self = this;
-        var categories = {
-        	scheme: 'https',
-        	host: 'openapi.etsy.com',
-        	base: '/v2',
-        	path: '/taxonomy/categories',
-        	params: {
-        		api_key: 'q4ubii6kukovuc0hl2e8myxx',
-                fields= 'name'
-        	},
-        };
-        
-        function urlFor(categories){
-        	// See http://lodash.com/docs#template
-        	var tpl = _.template('${scheme}://${host}${base}${path}?${params}');
-        
-        	var params = _.map(categories.params, function(value, key){
-        		return key + '=' + value;
-        	}).join('&');
-        
-        	// See http://lodash.com/docs#extend
-        	return tpl(_.extend({ }, categories, { params: params }));    
-        };
+    var self = this;
+    var categories = {
+        scheme: 'https',
+        host: 'openapi.etsy.com',
+        base: '/v2',
+        path: '/taxonomy/categories',
+        params: {
+            api_key: 'q4ubii6kukovuc0hl2e8myxx',
+            fields: 'name'
+        },    
+    };
+    console.log('categories.scheme');
 
-        console.log('scheme');
+    function urlFor(categories){
+        // See http://lodash.com/docs#template
+        var tpl = _.template('${scheme}://${host}${base}${path}?${params}');
 
-        describe('the categories', function(){
-        it('should have all the parts we need', function(){
-            assert.isDefined(categories.scheme);
-            assert.isDefined(categories.host);
-            assert.isDefined(categories.base);
-            assert.isDefined(categories.path);
-            assert.isDefined(categories.params.api_key)
-            // etc . . .
-        });
-        });
+        var params = _.map(categories.params, function(value, key){
+            return key + '=' + value;
+        }).join('&');
+
+        // See http://lodash.com/docs#extend
+        return tpl(_.extend({ }, categories, { params: params }));    
+    };
+
+//    describe('the categories', function(){
+//    it('should have all the parts we need', function(){
+//        assert.isDefined(categories.scheme);
+////        assert.isDefined(categories.host);
+////        assert.isDefined(categories.base);
+////        assert.isDefined(categories.path);
+////        assert.isDefined(categories.params.api_key)
+//        // etc . . .
+//    console.log('scheme');
+//    });
+//    });
 //})();
 
 
